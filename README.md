@@ -6,7 +6,7 @@
 
 ### <Demo>
 
-<img src="./README_img/demo.png">
+<img src="./README_img/demo.PNG">
 
 포인터의 이동은 **눈의 시선**으로, 
 
@@ -24,7 +24,7 @@
 
 <캘리브레이션> 얼굴 눈에 맞춰 조정
 
-<img src="./README_img/Calibration.jpg" width="200">
+<img src="./README_img/Calibration.jpg" width="250">
 
 
 
