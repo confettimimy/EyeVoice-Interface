@@ -47,17 +47,28 @@ print("Serial number: " + eyetracker.serial_number)
 
 ### 3. Calibration 수행
 
-시선데이터를 정확하게 수집할 수 있도록 PC 앞 사용자의 얼굴, 눈에 맞춰 조정한다.
+시선 데이터를 보다 더 정확하게 수집하기 위해 캘리브레이션을 수행
+
+PC 앞 사용자의 얼굴, 눈에 맞춰 조정합니다.
 
 <img src="./README_img/Calibration.jpg" width="250">
 
-### 4. 시선 데이터 구독
+### 4. 시선 데이터를 실시간으로 가져오기
+
+```python
+def gaze_data_callback(gaze_data):
+    . . .
+```
+
+콜백 함수를 이용해 일정한 간격으로 데이터 샘플을 출력한다.
 
 ```python
 eyetracker.subscribe_to(tr.EYETRACKER_GAZE_DATA, gaze_data_callback, as_dictionary=True)
 ```
 
-EyeTracker 개체의 시선 데이터를 구독하려면 EYETRACKER_GAZE_DATA를 subscribe 한다.
+EyeTracker 개체의 subscribe_to 함수를 호출한다.
+
+​    
 
 ---
 
@@ -70,6 +81,4 @@ EyeTracker 개체의 시선 데이터를 구독하려면 EYETRACKER_GAZE_DATA를
 인터페이스 사용시 사용자는 시선을 계속 이동시켜 포인터를 제어한다.
 
 클릭을 원할 시 그때마다 음성명령을 내려 원하는 동작을 수행시킨다. 음성명령어로는 음성 인식률이 97%인 "OK", "NO" 두 가지를 사용한다.
-
----
 
