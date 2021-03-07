@@ -12,7 +12,7 @@
 
 포인터의 실행은 **음성명령**(외 눈 깜빡임, 1초 응시 방식)으로 진행합니다.
 
-​    
+👁👁 👄
 
 ---
 
@@ -22,13 +22,13 @@
 
 ​    
 
-#### 1. tobii_research 라이브러리 가져오기
+### 1. tobii_research 라이브러리 가져오기
 
 ```python
 import tobii_research
 ```
 
-#### 2. tobii_research.find_all_eyetrackers() 함수를 사용해 사용 가능한 시선 추적기 목록을 가져오기, 아이트래커 연결 및 확인.
+### 2. tobii_research.find_all_eyetrackers() 함수를 사용해 사용 가능한 시선 추적기 목록을 가져오기, 아이트래커 연결 및 확인.
 
 ```python
 found_eyetrackers = tr.find_all_eyetrackers()
@@ -43,13 +43,13 @@ print("Serial number: " + eyetracker.serial_number)
 
 *find_all_eyetrackers에서 반환 된 객체는 tobii_research.EyeTracker의 인스턴스이다.
 
-#### 3. Calibration 수행
+### 3. Calibration 수행
 
 시선데이터를 정확하게 수집할 수 있도록 PC 앞 사용자의 얼굴, 눈에 맞춰 조정한다.
 
 <img src="./README_img/Calibration.jpg" width="250">
 
-#### 4. 시선 데이터 구독
+### 4. 시선 데이터 구독
 
 ```python
 eyetracker.subscribe_to(tr.EYETRACKER_GAZE_DATA, gaze_data_callback, as_dictionary=True)
