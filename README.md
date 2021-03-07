@@ -1,8 +1,8 @@
-# EyeTracking Interface   
+# EyeTracking Interface (KCI 등재논문)
 
 마우스 기기의 사용 없이 **시선추적**과 **[음성인식](https://github.com/confettimimy/EyeTracking-Interface/tree/main/EYE(sound))**(외 **[눈 깜빡임](https://github.com/confettimimy/EyeTracking-Interface/tree/main/EYE(blink))**, **[1초 응시 방식](https://github.com/confettimimy/EyeTracking-Interface/tree/main/EYE(gaze))**)을 이용해 컴퓨터를 사용할 수 있는 인터페이스
 
-## [시연영상 보러가기](https://blog.naver.com/confettimimy/222095713733)  👈🏻😃   
+## [시연영상 보러가기](https://blog.naver.com/confettimimy/222095713733)  👈🏻😃 
 
 ### < Demo >
 
@@ -65,12 +65,11 @@ EyeTracker 개체의 시선 데이터를 구독하려면 EYETRACKER_GAZE_DATA를
 
 <img src="./README_img/시스템 설계도.PNG" width="700">
 
-설계도는 크게 시선추적 모듈과 음성인식 모듈로 구성된다.
+시스템은 크게 **시선추적**과 **음성인식** 모듈 파트로 구성된다.
 
 인터페이스 사용시 사용자는 시선을 계속 이동시켜 포인터를 제어한다.
 
-클릭을 원할 시 그때마다 음성명령을 내린다. 음성명령어로는 음성 인식률이 97%인 "OK", "NO" 두 가지를 사용한다.
+클릭을 원할 시 그때마다 음성명령을 내려 원하는 동작을 수행시킨다. 음성명령어로는 음성 인식률이 97%인 "OK", "NO" 두 가지를 사용한다.
 
 ---
 
-+논문정보
