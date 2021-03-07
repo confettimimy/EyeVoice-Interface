@@ -18,7 +18,7 @@
 
 ## 아이트래킹 인터페이스 구동하기
 
-**개발한 소프트웨어는 eyemove.py 입니다.**
+**직접 개발한 소프트웨어는 [eyemove.py](https://github.com/confettimimy/EyeTracking-Interface/blob/main/EYE(sound)/eyemove_0813(%EC%B5%9C%EC%8B%A0%ED%8C%90)2.py) 입니다.**
 
 ​    
 
