@@ -28,7 +28,9 @@
 import tobii_research
 ```
 
-### 2. tobii_research.find_all_eyetrackers() 함수를 사용해 사용 가능한 시선 추적기 목록을 가져오기, 아이트래커 연결 및 확인.
+### 2. 아이트래커 연결 및 확인
+
+tobii_research.find_all_eyetrackers() 함수를 사용해 사용 가능한 시선 추적기 목록을 가져옵니다.
 
 ```python
 found_eyetrackers = tr.find_all_eyetrackers()
