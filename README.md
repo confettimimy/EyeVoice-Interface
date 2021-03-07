@@ -18,11 +18,17 @@
 
 ## 아이트래킹 인터페이스 구동하기
 
-### 1. tobii_research 라이브러리를 import 한 다음, tobii_research.find_all_eyetrackers() 함수를 사용해 사용 가능한 시선 추적기 목록을 가져옵니다. 
+**개발한 소프트웨어는 eyemove.py 입니다.**
+
+​    
+
+#### 1. tobii_research 라이브러리 가져오기
 
 ```python
 import tobii_research
 ```
+
+#### 2. tobii_research.find_all_eyetrackers() 함수를 사용해 사용 가능한 시선 추적기 목록을 가져오기, 아이트래커 연결 및 확인.
 
 ```python
 found_eyetrackers = tr.find_all_eyetrackers()
@@ -37,19 +43,19 @@ print("Serial number: " + eyetracker.serial_number)
 
 *find_all_eyetrackers에서 반환 된 객체는 tobii_research.EyeTracker의 인스턴스이다.
 
-​    
+#### 3. Calibration 수행
 
-### 2. 아이트래커에 연결
-
-1. ts 라이브러리를 import
-
-2. 캘리브레이션 
-
-<캘리브레이션> 얼굴 눈에 맞춰 조정
+시선데이터를 정확하게 수집할 수 있도록 PC 앞 사용자의 얼굴, 눈에 맞춰 조정한다.
 
 <img src="./README_img/Calibration.jpg" width="250">
 
+#### 4. 시선 데이터 구독
 
+```python
+eyetracker.subscribe_to(tr.EYETRACKER_GAZE_DATA, gaze_data_callback, as_dictionary=True)
+```
+
+EyeTracker 개체의 시선 데이터를 구독하려면 EYETRACKER_GAZE_DATA를 subscribe 한다.
 
 ---
 
