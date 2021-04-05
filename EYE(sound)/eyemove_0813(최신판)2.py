@@ -1,5 +1,3 @@
-"""from __future__ import division"""
-
 import os
 import subprocess
 import platform
@@ -9,22 +7,10 @@ import time
 import numpy as np
 import win32api
 
-"""
-import re
-import sys
-
-from google.cloud import speech
-from google.cloud.speech import enums
-from google.cloud.speech import types
-import pyaudio
-from six.moves import queue
-
-"""
 
 import pyautogui
 
 from transcribe_streaming_mic2 import *
-
 
 
 
@@ -37,6 +23,8 @@ print("Address: " + eyetracker.address)
 print("Model: " + eyetracker.model)
 print("Name (It's OK if this is empty): " + eyetracker.device_name)
 print("Serial number: " + eyetracker.serial_number)
+
+
 
 xlist = []
 ylist = []
@@ -60,6 +48,10 @@ y4=540
 x=0
 y=0
 
+
+
+
+
 def gaze_data_callback(gaze_data):
     gaze_left_eye = gaze_data['left_gaze_point_on_display_area']
     gaze_right_eye = gaze_data['right_gaze_point_on_display_area']
@@ -76,12 +68,13 @@ def gaze_data_callback(gaze_data):
         gaze_data_callback = (np.nan(xs), np.nan(ys))
 
 
-    global x1, y1, x2, y2, x3, y3, x4, y4, x, y
-    
-
-
+        
     x = int(np.nanmean(xs) * 1920)
     y = int(np.nanmean(ys) * 1080)
+
+
+    
+    global x1, y1, x2, y2, x3, y3, x4, y4, x, y
 
     x=int((x*3+x1*3+x2*2+x3*1+x4*1)/10)
     y=int((y*3+y1*3+y2*2+y3*1+y4*1)/10)
@@ -98,7 +91,6 @@ def gaze_data_callback(gaze_data):
 
     
 
-    
 
     global count  #30번 째 절단을 위한 count
     global count2   #16번 검증을 위한 count

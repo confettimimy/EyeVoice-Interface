@@ -1,5 +1,3 @@
-"""from __future__ import division"""
-
 import os
 import subprocess
 import platform
@@ -7,30 +5,12 @@ import glob
 import tobii_research as tr
 import time
 import numpy as np
-import numpy
 import win32api
 
-"""
-import re
-import sys
-
-from google.cloud import speech
-from google.cloud.speech import enums
-from google.cloud.speech import types
-import pyaudio
-from six.moves import queue
-
-"""
 
 import pyautogui
 
 from transcribe_streaming_mic2 import *
-
-
-
-
-
-
 
 
 
@@ -44,16 +24,18 @@ print("Model: " + eyetracker.model)
 print("Name (It's OK if this is empty): " + eyetracker.device_name)
 print("Serial number: " + eyetracker.serial_number)
 
+
+
 xlist = []
 ylist = []
 xlist2=[]
 ylist2=[]
 
-count=1  #콜백함수를 루프처럼 활용하기 위해
+count=1  # 콜백함수를 루프처럼 활용하기 위해
 count2=0
 index=0
 
-stack=-400 #처음에 nan값이 너무많이 잡혀서 눈을 감지도 않았는데 클릭됨. 따라서 시작점을 아주 낮게부터 시작.
+stack = -400 # 처음에 nan값이 너무많이 잡혀서 눈을 감지도 않았는데 클릭됨. 따라서 시작점을 아주 낮게부터 시작.
 
 x_control = 0
 y_control = 0
@@ -72,11 +54,6 @@ y=0
 
 
 
-
-
-
-
-
 def gaze_data_callback(gaze_data):
     gaze_left_eye = gaze_data['left_gaze_point_on_display_area']
     gaze_right_eye = gaze_data['right_gaze_point_on_display_area']
@@ -84,14 +61,8 @@ def gaze_data_callback(gaze_data):
 
 
 
-
-
-
-
-
-
-    global stack #전역변수
-
+    # blink
+    global stack
 
     #print(gaze_left_eye, "0")
     #print(gaze_left_eye[0], "1")
@@ -106,23 +77,15 @@ def gaze_data_callback(gaze_data):
     
     #stack값이 쌓여 50에 도달하면 클릭됨. (값이 너무 많이 들어와서 무방비함을 방지하게 하기 위함)
     if(stack==100): 
-        print("클릭!!!!!!!!!!!")
+        print("클릭!!")
         pyautogui.doubleClick()
-        stack = 0 #값 초기화.  #간격100으로 잡을 시 눈 1초 이상 감아야함/ 50으로 잡을 시 눈 반짝 감아야함.
+        stack = 0 #값 초기화  #간격100으로 잡을 시 눈 1초 이상 감아야함 / 50으로 잡을 시 눈 반짝 감아야함
         
 
 
 
-
-
-
-   
-
-
     xs = (gaze_left_eye[0], gaze_right_eye[0])
     ys = (gaze_left_eye[1], gaze_right_eye[1])
-
-
 
     # if all of the axes have data from at least one eye
     if all([x != -1.0 for x in xs]) and all([y != -1.0 for y in ys]):
@@ -134,22 +97,12 @@ def gaze_data_callback(gaze_data):
         
 
 
-
-
-
-            
+    x = int(np.nanmean(xs) * 1920)
+    y = int(np.nanmean(ys) * 1080)
 
 
 
     global x1, y1, x2, y2, x3, y3, x4, y4, x, y
-
-
-
-    x = int(np.nanmean(xs) * 1920)
-    y = int(np.nanmean(ys) * 1080)
-
-    #print(x,y,"ㅎㅎ")############
-
 
     x=int((x*3+x1*3+x2*2+x3*1+x4*1)/10)
     y=int((y*3+y1*3+y2*2+y3*1+y4*1)/10)
@@ -162,11 +115,6 @@ def gaze_data_callback(gaze_data):
     y2 = y1
     x1 = x
     y1 = y
-
-
-
-
-
 
 
 
