@@ -124,15 +124,15 @@ def gaze_data_callback(gaze_data):
     global count2   #16번 검증을 위한 count
     global index    #비교할 기준 값의 인덱스
 
-    if (count%30==1):
+    if count%30 == 1:
         win32api.SetCursorPos((x, y))
         xlist.append(x)    #30번 째 들어 오는 값을 추가
         ylist.append(y)
 
-        x_control=xlist[index]   #비교할 기준 값의 인덱스로 기준 값을 알 수 있음
-        y_control=ylist[index]
+        x_control = xlist[index]   #비교할 기준 값의 인덱스로 기준 값을 알 수 있음
+        y_control = ylist[index]
 
-        if (count2==4):   #X개가 다 범위 안에 들 경우
+        if count2 == 4:   #X개가 다 범위 안에 들 경우
             xlist2.append(x_control)
             ylist2.append(y_control)
             count2=0   #다음 검증을 위해 카운트 값 0으로 리셋
@@ -140,10 +140,10 @@ def gaze_data_callback(gaze_data):
             print(xlist2,ylist2)
             #pyautogui.doubleClick()
 
-        elif (x_control-50<=x<=x_control+50 and y_control-50<=y<=y_control+50): #x,y 값이 처음 들어온 경우에는 control 값과 x, y의 값이 같기때문에 이 경우에 든다.
-            count2+=1   #범위 안에 들면 카운트를 증가 시킴
+        elif (x_control-50<=x<=x_control+50 and y_control-50<=y<=y_control+50): # x,y 값이 처음 들어온 경우에는 control 값과 x, y의 값이 같기때문에 이 경우에 든다.
+            count2+=1   # 범위 안에 들면 카운트를 증가 시킴
         else:
-            index+=1    #범위안에 안 들 경우는 기준값을 현재 기준값의 다음 값으로 변하게 하기 위해 index 1증가
+            index+=1    # 범위 안에 안 들 경우는 기준값을 현재 기준값의 다음 값으로 변하게 하기 위해 index 1 증가
             x_control=xlist[index]
             y_control=ylist[index]
 
